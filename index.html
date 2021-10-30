@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="timer.css">
+</head>
+<title>アナログタイマー</title>
+
+<body>
+
+<header>
+
+</header>
+
+<main>
+    <div class="timer-container">
+      <canvas id="timer-canvas"></cavas>
+    </div>
+
+    <div class="timer-controller">
+      <div class="timer-controller-row">
+        <span id="timer-digit">00:00</span>
+      </div>
+      <div class="timer-controller-row">
+        <button class="timer-set-button" type="button" id="button-10min">10分</button>    
+        <button class="timer-set-button" type="button" id="button-1min">1分</button>    
+        <button class="timer-set-button" type="button" id="button-10sec">10秒</button>   
+        <button class="timer-set-button" type="button" id="button-1sec">1秒</button>  
+      </div>
+      <div class="timer-controller-row">
+        <button class="timer-button" type="button" id="timer-start"><img src="baseline_play_arrow_white_24dp.png"></button>
+        <button class="timer-button" type="button" id="timer-stop"><img src="baseline_pause_white_24dp.png"></button>
+        <button class="timer-button" type="button" id="timer-reset"><img src="baseline_replay_white_24dp.png"></button>    
+      </div>
+
+    </div>
+</main>
+
+</body>
+
+<script type="text/javascript" src="timer.js"></script>
+
+</html>

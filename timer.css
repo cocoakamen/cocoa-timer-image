@@ -1,0 +1,96 @@
+:root {
+  --timer-container-width: 800px;
+  --timer-image-width: calc(var(--timer-container-width)/2);
+}
+
+main {
+  display:flex;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+main .timer-container{
+  width:var(--timer-container-width);
+  text-align:center;
+  margin:5px;
+}
+
+main .timer-controller{
+  width:var(--timer-container-width);
+  margin:5px;
+}
+
+main #timer-canvas {
+  border: none;
+}
+main #timer-image {
+  width: var(--timer-image-width);
+}
+
+main .timer-controller-row{
+  margin:0px 20px 10px 20px;
+  text-align: center;
+}
+
+main #timer-digit {
+  font-size: 1.5em;
+  color: #696969;
+  line-height: 2em;
+}
+
+main .timer-button {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  background-color: #008080;
+  color: #fff;
+  border-style: none;
+
+  /* ボタンの影の指定
+   * 影の横幅を2px
+   * 縦長を2px
+   * ぼかしを3px
+   * 広がりを1px
+   * 色を#666（グレー）に指定 */
+  box-shadow: 2px 2px 3px 1px #666;
+  -moz-box-shadow: 2px 2px 3px 1px #666;
+  -webkit-box-shadow: 2px 2px 3px 1px #666;
+}
+
+main .timer-button:hover {
+  background-color: #66cdaa;
+  color: #fff;
+  cursor: pointer;
+}
+
+main .timer-button img{
+  height: 20px;
+}
+
+main .timer-set-button {
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 0.3em 1em;
+  background-color: #2f4f4f;
+  color: #fff;
+  border-style: none;
+
+  /* ボタンの影の指定
+   * 影の横幅を2px
+   * 縦長を2px
+   * ぼかしを3px
+   * 広がりを1px
+   * 色を#666（グレー）に指定 */
+  box-shadow: 2px 2px 3px 1px #666;
+  -moz-box-shadow: 2px 2px 3px 1px #666;
+  -webkit-box-shadow: 2px 2px 3px 1px #666;
+}
+
+main .timer-set-button:hover {
+  background-color: #66cdaa;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
