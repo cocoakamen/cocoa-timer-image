@@ -78,12 +78,13 @@ main .timer-button img{
 main .timer-set-button {
   font-size: 1.0em;
   font-weight: bold;
-  padding: 0.3em 1em;
+  padding: 0.5em 1em;
   background-color: #2f4f4f;
   color: #fff;
   border-style: none;
-  max-width:120px;
+  max-width:90px;
   width: 20%;
+  margin-top: 1em;
 
   /* ボタンの影の指定
    * 影の横幅を2px
