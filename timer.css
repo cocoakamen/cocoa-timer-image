@@ -1,27 +1,29 @@
-:root {
-  --timer-container-width: 800px;
-}
-
 #main {
   display:flex;
-  justify-content:center;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content:center;
   height: 100vh;
+  min-height:500px;
   margin:auto;
 }
 
 main .timer-container{
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  align-items: center;
+  flex-wrap: wrap;
   width:90%;
 }
 
-main .timer-analog{
-  text-align:center;
+main #timer-analog{
   margin:5px;
+  width:100%;
 }
 
 main .timer-controller{
   margin:5px;
+  width:100%;
 }
 
 main #timer-canvas {
@@ -29,8 +31,8 @@ main #timer-canvas {
 }
 
 main .timer-controller-row{
-  margin:0px 20px 10px 20px;
-  text-align: center;
+  margin:auto;
+  width: 100%;
 }
 
 main #timer-digit {
@@ -46,6 +48,10 @@ main .timer-button {
   background-color: #008080;
   color: #fff;
   border-style: none;
+  width:20%;
+  max-width:120px;
+  height:50px;
+  margin-top:20px;
 
   /* ボタンの影の指定
    * 影の横幅を2px
@@ -68,6 +74,7 @@ main .timer-button img{
   height: 20px;
 }
 
+/** 時間セットするボタン */
 main .timer-set-button {
   font-size: 1.0em;
   font-weight: bold;
@@ -75,6 +82,8 @@ main .timer-set-button {
   background-color: #2f4f4f;
   color: #fff;
   border-style: none;
+  max-width:120px;
+  width: 20%;
 
   /* ボタンの影の指定
    * 影の横幅を2px

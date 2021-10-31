@@ -2,18 +2,12 @@ function CocoaTimer() {
   this.remainingTime = 0;
   this.targetTime = 0;
   this.timer = 0;
-  // timer-image
-  console.log(document.getElementById('main').clientHeight);
-  const mainHeight = document.getElementById('main').clientHeight;
-  const mainWidth = document.getElementById('main').clientWidth;
-  this.TIMER_CANVAS_SIZE =  Math.min(mainHeight -300, mainWidth * 0.85);
+  // canvas準備
   this.TIMER_COVER_COLOR = '#f0fff0';
   this.TIMER_COVER_LINE_COLOR = '#2e8b57';
-  // canvas準備
-  const canvas = document.getElementById('timer-canvas');
-  canvas.height  = this.TIMER_CANVAS_SIZE;
-  canvas.width  = this.TIMER_CANVAS_SIZE;
-  this.ctx = canvas.getContext('2d');
+  this.canvas = document.getElementById('timer-canvas');
+  this.ctx = this.canvas.getContext('2d');
+  this.resizeTimerCanvas();
 
   // 画像
   this.baseImage = new Image();
@@ -27,17 +21,27 @@ function CocoaTimer() {
   this.isAlermPlaying = false;
 };
 
+CocoaTimer.prototype.resizeTimerCanvas = function() {
+  console.log(document.getElementById('main').clientHeight);
+  const mainHeight = document.getElementById('main').clientHeight;
+  const mainWidth = document.getElementById('main').clientWidth;
+  this.timerCanvasSize =  Math.min(mainHeight -300, mainWidth * 0.85);
+
+  this.canvas.height  = this.timerCanvasSize;
+  this.canvas.width  = this.timerCanvasSize;
+}
+
 CocoaTimer.prototype.clearTimerCanvas = function() {
-  this.ctx.clearRect(0, 0, this.TIMER_CANVAS_SIZE, this.TIMER_CANVAS_SIZE);
+  this.ctx.clearRect(0, 0, this.timerCanvasSize, this.timerCanvasSize);
   // 横幅に合わせて正方形で表示
   this.ctx.drawImage(this.baseImage, 0, 0, 
                       this.baseImage.naturalWidth, this.baseImage.naturalWidth,
-                      0, 0, this.TIMER_CANVAS_SIZE, this.TIMER_CANVAS_SIZE );
+                      0, 0, this.timerCanvasSize, this.timerCanvasSize );
 };
 
 // 12時の位置からの角度を指定
 CocoaTimer.prototype.drawCover = function(degree){
-  const radius = this.TIMER_CANVAS_SIZE/2
+  const radius = this.timerCanvasSize/2
   // パスをリセット
   this.ctx.beginPath () ;
   // 開始角度: 90 * Math.PI / 180 : 12時の方向からスタート
@@ -170,6 +174,13 @@ const cocoaTimer = new CocoaTimer();
 window.onload = function(){
 
   cocoaTimer.resetTime();
+
+  window.addEventListener('resize', function(){
+    console.log("Width:" + window.innerWidth);
+    console.log("Height:" + window.innerHeight);
+    cocoaTimer.resizeTimerCanvas();
+    cocoaTimer.drawTime();
+  });
 
   // スタートボタン
   document.getElementById('timer-start').addEventListener("click", function(){
