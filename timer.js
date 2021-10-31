@@ -3,7 +3,10 @@ function CocoaTimer() {
   this.targetTime = 0;
   this.timer = 0;
   // timer-image
-  this.TIMER_CANVAS_SIZE = 380;
+  console.log(document.getElementById('main').clientHeight);
+  const mainHeight = document.getElementById('main').clientHeight;
+  const mainWidth = document.getElementById('main').clientWidth;
+  this.TIMER_CANVAS_SIZE =  Math.min(mainHeight -300, mainWidth * 0.85);
   this.TIMER_COVER_COLOR = '#f0fff0';
   this.TIMER_COVER_LINE_COLOR = '#2e8b57';
   // canvas準備
